@@ -1,0 +1,207 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --nav-height: 92px; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, #f4fbff 0%, #e8f7ff 50%, #ffffff 100%);
+  color: #0b3b5a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(11,59,90,0.06);
+  z-index: 50;
+}
+
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+
+.nav-btn {
+  display: inline-block;
+  position: relative;
+  padding: 10px 16px;
+  color: #0b3b5a;
+  background: linear-gradient(90deg, #dff6ff 0%, #bfefff 100%);
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(11,59,90,0.08);
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 200ms, filter 200ms;
+  overflow: hidden;
+  border: 1px solid rgba(11,59,90,0.06);
+}
+
+.nav-btn:hover, .nav-btn:focus {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(11,59,90,0.12);
+  filter: saturate(1.05);
+  outline: none;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  left: -60%;
+  top: -30%;
+  width: 40%;
+  height: 160%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.35), rgba(255,255,255,0.05));
+  transform: rotate(25deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.nav-btn:hover::after { left: 120%; }
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(11,59,90,0.15);
+  animation: ripple 600ms linear;
+  pointer-events: none;
+}
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* Main area centered below nav */
+.page-center {
+  margin-top: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.page-center h1 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  color: #044a6b;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Content area for other pages (remove duplicidade com main) */
+.page-content {
+  margin: var(--nav-height) auto 0;
+  padding: 20px;
+  max-width: 900px;
+  color: #08364e;
+}
+.page-content h1 { margin-bottom: 12px; }
+.page-content p, .page-content ul { font-size: 1rem; line-height: 1.6; margin-bottom: 12px; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 18px 12px;
+  color: rgba(4,74,107,0.8);
+  font-size: 0.95rem;
+  background: transparent;
+}
+
+/* Botão de voltar (seta) */
+.back-btn {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  color: #044a6b;
+  background: linear-gradient(90deg,#e6f8ff 0%,#d3f0ff 100%);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(11,59,90,0.06);
+  box-shadow: 0 6px 16px rgba(11,59,90,0.06);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  margin-bottom: 18px;
+}
+.back-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(11,59,90,0.09); }
+.back-btn .arrow {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* Animações de entrada (mantém para títulos; cards são controlados por JS) */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #044a6b;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Estilo para cards de informação */
+/* Removida animação direta (duplicada com JS). JS define opacidade/transform/transition. */
+.info-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(11, 59, 90, 0.08);
+  border: 1px solid rgba(11, 59, 90, 0.06);
+}
+
+.info-card h2 {
+  color: #044a6b;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+.info-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-card li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+}
+
+.info-card li:before {
+  content: "•";
+  color: #0b3b5a;
+  position: absolute;
+  left: 8px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 720px) {
+  .top-nav ul { gap: 8px; padding: 8px; flex-wrap: wrap; }
+  .nav-btn { padding: 8px 12px; font-size: 0.95rem; border-radius: 10px; }
+  .page-content { margin-top: calc(var(--nav-height) / 1.2); padding-top: 80px; }
+  .info-card {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+}

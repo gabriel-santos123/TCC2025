@@ -112,7 +112,7 @@ body {
 footer {
   text-align: center;
   padding: 18px 12px;
-  color: red;
+  color: rgba(4,74,107,0.8);
   font-size: 0.95rem;
   background: transparent;
 }

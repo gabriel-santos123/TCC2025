@@ -83,7 +83,6 @@ body {
   to { transform: scale(4); opacity: 0; }
 }
 
-/* Main area centered below nav */
 .page-center {
   margin-top: var(--nav-height);
   display: flex;
@@ -101,7 +100,6 @@ body {
   line-height: 1;
 }
 
-/* Content area for other pages (remove duplicidade com main) */
 .page-content {
   margin: var(--nav-height) auto 0;
   padding: 20px;
@@ -111,16 +109,14 @@ body {
 .page-content h1 { margin-bottom: 12px; }
 .page-content p, .page-content ul { font-size: 1rem; line-height: 1.6; margin-bottom: 12px; }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 18px 12px;
-  color: rgba(4,74,107,0.8);
+  color: red;
   font-size: 0.95rem;
   background: transparent;
 }
 
-/* Botão de voltar (seta) */
 .back-btn {
   display: inline-flex;
   gap: 8px;
@@ -142,7 +138,6 @@ footer {
   line-height: 1;
 }
 
-/* Animações de entrada (mantém para títulos; cards são controlados por JS) */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -156,8 +151,6 @@ footer {
   animation: fadeInUp 0.4s ease-out;
 }
 
-/* Estilo para cards de informação */
-/* Removida animação direta (duplicada com JS). JS define opacidade/transform/transition. */
 .info-card {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
@@ -190,7 +183,6 @@ footer {
   left: 8px;
 }
 
-/* Ajustes responsivos */
 @media (max-width: 720px) {
   .top-nav ul { gap: 8px; padding: 8px; flex-wrap: wrap; }
   .nav-btn { padding: 8px 12px; font-size: 0.95rem; border-radius: 10px; }

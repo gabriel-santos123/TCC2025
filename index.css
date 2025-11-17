@@ -4,7 +4,7 @@ html, body { height: 100%; }
 body {
   font-family: Inter, Roboto, Arial, sans-serif;
   background: linear-gradient(180deg, #f4fbff 0%, #e8f7ff 50%, #ffffff 100%);
-  color: #0b3b5a;
+  color: red;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   min-height: 100vh;
